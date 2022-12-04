@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer components{
+  .button-primary{
+    @apply bg-blue-600 text-white px-5 py-2 rounded-xl cursor-pointer text-lg hover:bg-blue-700 active:bg-blue-800
+  }
+
+  .button-outline{
+    @apply bg-transparent text-blue-600 hover:text-blue-700 active:text-blue-800 border border-blue-600 hover:border-blue-700 active:border-blue-800 px-5 py-2 rounded-xl text-lg
+  }
+
+  .input-group{
+    @apply flex flex-col gap-3
+  }
+
+  .input-label{
+    @apply text-[17px] font-[500]
+  }
+
+  .input-label span{
+    @apply text-blue-600
+  }
+
+  .input{
+    @apply rounded-md shadow-[1px_3px_7px_0.05px_rgba(0,0,0,0.15)] border-none outline-none p-3 focus:outline-1 focus:outline-blue-600 placeholder:text-gray-500
+  }
+}
