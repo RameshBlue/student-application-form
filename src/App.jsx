@@ -2,10 +2,13 @@ import { useState } from 'react'
 import PageOne from './components/PageOne';
 import PagesHeader from './components/PagesHeader'
 
+//https://www.behance.net/gallery/148024663/Online-Application-Form-UI-UX?tracking_source=search_projects%7Capplication+form
+
 function App() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [completed, setCompleted] = useState(false);
+  const [pageTransition, setPageTransition] = useState(false);
 
   const handlePreviousClick = () => {
     if (currentPage > 1) {
@@ -14,11 +17,15 @@ function App() {
   }
 
   const handleNextClick = () => {
-    if (currentPage < 4) {
-      setCurrentPage(currentPage + 1);
-    } else {
-      setCompleted(true);
-    }
+    setPageTransition(true);
+    setTimeout(() => {
+      if (currentPage < 4) {
+        setCurrentPage(currentPage + 1);
+      } else {
+        setCompleted(true);
+      }
+      setPageTransition(false);
+    }, 350)
   }
 
   const renderButtons = () => {
@@ -40,7 +47,7 @@ function App() {
           !completed ?
             <>
               <PagesHeader currentPage={currentPage} />
-              {currentPage == 1 && <PageOne />}
+              {currentPage == 1 && <PageOne isComplete={pageTransition} />}
             </> : ''
         }
       </>
@@ -50,7 +57,7 @@ function App() {
   return (
     <div className='bg-gray-200 w-full min-h-screen grid place-items-center'>
       <div className='flex flex-col gap-6 max-w-[700px] w-[90%]'>
-        <div className='flex flex-col items-center bg-white shadow-md rounded-md p-12 w-full'>
+        <div className='flex flex-col items-center bg-white shadow-md rounded-md p-12 w-full overflow-hidden'>
           {renderPages()}
         </div>
         {!completed && renderButtons()}
