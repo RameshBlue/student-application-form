@@ -32,4 +32,8 @@
   .input{
     @apply rounded-md shadow-[1px_3px_7px_0.05px_rgba(0,0,0,0.15)] border-none outline-none p-3 focus:outline-1 focus:outline-blue-600 placeholder:text-gray-500
   }
+
+  input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
 }

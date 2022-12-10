@@ -1,41 +1,24 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import PageOne from './components/PageOne';
 import PagesHeader from './components/PagesHeader'
+import PageTwo from './components/PageTwo';
+import { pageContext } from './context/PageContext';
 
 //https://www.behance.net/gallery/148024663/Online-Application-Form-UI-UX?tracking_source=search_projects%7Capplication+form
-
 function App() {
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [completed, setCompleted] = useState(false);
-  const [pageTransition, setPageTransition] = useState(false);
-
-  const handlePreviousClick = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  }
-
-  const handleNextClick = () => {
-    setPageTransition(true);
-    setTimeout(() => {
-      if (currentPage < 4) {
-        setCurrentPage(currentPage + 1);
-      } else {
-        setCompleted(true);
-      }
-      setPageTransition(false);
-    }, 350)
-  }
+  const {currentPage, currentSubmitButton, changePage, OnPreviousClick } = useContext(pageContext);
 
   const renderButtons = () => {
     return (
       <div className='flex'>
         {
-          currentPage > 1 && <button className='button-primary' onClick={handlePreviousClick}>Previous</button>
+          currentPage > 1 && <button className='button-outline' onClick={OnPreviousClick}>Previous</button>
         }
         <div className='flex-1'></div>
-        <button className='button-outline' onClick={handleNextClick}>Next</button>
+        <button className='button-primary' onClick={() => {
+          currentSubmitButton.current.click();
+        }}>Next</button>
       </div>
     )
   }
@@ -44,10 +27,11 @@ function App() {
     return (
       <>
         {
-          !completed ?
+          currentPage <= 4 ?
             <>
               <PagesHeader currentPage={currentPage} />
-              {currentPage == 1 && <PageOne isComplete={pageTransition} />}
+              {/* {currentPage == 1 && <PageOne isComplete={changePage} />} */}
+              {currentPage == 1 && <PageTwo isComplete={changePage} />}
             </> : ''
         }
       </>
@@ -60,7 +44,7 @@ function App() {
         <div className='flex flex-col items-center bg-white shadow-md rounded-md p-12 w-full overflow-hidden'>
           {renderPages()}
         </div>
-        {!completed && renderButtons()}
+        {currentPage <= 4 && renderButtons()}
       </div>
     </div>
   )
