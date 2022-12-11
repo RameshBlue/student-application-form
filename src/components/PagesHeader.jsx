@@ -19,27 +19,13 @@ const PagesHeader = ({ currentPage }) => {
 
     return (
         <div className='flex w-[90%] items-center mb-12'>
-            {
-                PageNumber(1)
-            }
-            {
-                Line()
-            }
-            {
-                PageNumber(2)
-            }
-            {
-                Line()
-            }
-            {
-                PageNumber(3)
-            }
-            {
-                Line()
-            }
-            {
-                PageNumber(4)
-            }
+            {PageNumber(1)}
+            {Line()}
+            {PageNumber(2)}
+            {Line()}
+            {PageNumber(3)}
+            {Line()}
+            {PageNumber(4)}
         </div>
     )
 }

@@ -19,7 +19,7 @@ const PageOne = ({ isComplete }) => {
     }, [])
 
     const ValidationSchema = Yup.object().shape({
-        name: Yup.string().required("Name is required"),
+        studentName: Yup.string().required("Name is required"),
         fatherName: Yup.string().required("Father name is required"),
         email: Yup.string().email("Please check you email").required("Email address is required"),
         phoneNumber: Yup.string().matches(/(7|8|9)\d{9}/, "Invalid phone number").required("Phone number is required"),
@@ -30,7 +30,7 @@ const PageOne = ({ isComplete }) => {
 
     const { handleBlur, handleChange, handleSubmit, values, errors, touched } = useFormik({
         initialValues: {
-            name: "",
+            studentName: "",
             fatherName: "",
             email:"",
             phoneNumber: "",
@@ -63,9 +63,9 @@ const PageOne = ({ isComplete }) => {
             <p className='self-start text-gray-500 mb-6'>Please fill in the student information so we will be able to contact</p>
             <form className='grid grid-cols-2 gap-8 w-full' onSubmit={handleSubmit}>
                 <div className='input-group'>
-                    <label className='input-label' htmlFor="name">Name<span>*</span></label>
-                    <input className='input' type="text" name='name' placeholder='Enter your name' value={values.name} onBlur={handleBlur} onChange={handleChange} />
-                    {touched.name && errors.name ? <p className='text-red-600'>{errors.name}</p> : null}
+                    <label className='input-label' htmlFor="studentName">Student Name<span>*</span></label>
+                    <input className='input' type="text" name='studentName' placeholder='Enter student name' value={values.studentName} onBlur={handleBlur} onChange={handleChange} />
+                    {touched.studentName && errors.studentName ? <p className='text-red-600'>{errors.studentName}</p> : null}
                 </div>
                 <div className='input-group'>
                     <label className='input-label' htmlFor="fatherName">Father Name<span>*</span></label>
@@ -87,7 +87,7 @@ const PageOne = ({ isComplete }) => {
                     {errors.phoneNumber && touched.phoneNumber ? <p className='text-red-600'>{errors.phoneNumber}</p> : null}
                 </div>
                 <div className='input-group'>
-                    <label className='input-label' htmlFor="date">Date<span>*</span></label>
+                    <label className='input-label' htmlFor="date">Date of birth<span>*</span></label>
                     <input className='input' type="date" name='date' onBlur={handleBlur} onChange={handleChange} value={values.date} />
                     {errors.date && touched.date ? <p className='text-red-600'>{errors.date}</p> : null}
                 </div>
