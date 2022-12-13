@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import FinalPage from './components/FinalPage';
 import PageFour from './components/PageFour';
 import PageOne from './components/PageOne';
 import PagesHeader from './components/PagesHeader'
@@ -6,7 +7,6 @@ import PageThree from './components/PageThree';
 import PageTwo from './components/PageTwo';
 import { pageContext } from './context/PageContext';
 
-//https://www.behance.net/gallery/148024663/Online-Application-Form-UI-UX?tracking_source=search_projects%7Capplication+form
 function App() {
 
   const {currentPage, currentSubmitButton, changePage, OnPreviousClick } = useContext(pageContext);
@@ -30,11 +30,11 @@ function App() {
           currentPage <= 4 ?
             <>
               <PagesHeader currentPage={currentPage} />
-              {/* {currentPage == 1 && <PageOne isComplete={changePage} />}
-              {currentPage == 2 && <PageTwo isComplete={changePage} />} */}
-              {/* {currentPage == 1 && <PageThree isComplete={changePage} />} */}
-              {currentPage == 1 && <PageFour isComplete={changePage} />}
-            </> : ''
+              {currentPage == 1 && <PageOne isComplete={changePage} />}
+              {currentPage == 2 && <PageTwo isComplete={changePage} />}
+              {currentPage == 3 && <PageThree isComplete={changePage} />}
+              {currentPage == 4 && <PageFour isComplete={changePage} />}
+            </> : <FinalPage />
         }
       </>
     )
@@ -43,7 +43,7 @@ function App() {
   return (
     <div className='bg-gray-200 w-full min-h-screen grid place-items-center'>
       <div className='flex flex-col gap-6 max-w-[700px] w-[90%]'>
-        <h1 className='font-semibold text-[30px] self-center text-gray-700'>College Application Form</h1>
+        {currentPage <=4 && <h1 className='font-semibold text-[30px] self-center text-gray-700'>College Application Form</h1>}
         <div className='flex flex-col items-center bg-white shadow-md rounded-md p-12 w-full overflow-hidden'>
           {renderPages()}
         </div>

@@ -18,7 +18,7 @@ function PageProvider({ children }) {
         setChangePage(true);
         setTimeout(() => {
             setChangePage(false);
-            if (currentPage < 4) {
+            if (currentPage <= 4) {
                 setCurrentPage(currentPage + 1);
             }
         }, 350)
