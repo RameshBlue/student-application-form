@@ -41,9 +41,9 @@ function App() {
   }
 
   return (
-    <div className='bg-gray-200 w-full min-h-screen grid place-items-center'>
+    <div className='bg-gray-200 w-full min-h-screen grid place-items-center p-10'>
       <div className='flex flex-col gap-6 max-w-[700px] w-[90%]'>
-        {currentPage <=4 && <h1 className='font-semibold text-[30px] self-center text-gray-700'>College Application Form</h1>}
+        {currentPage <=4 && <h1 className='font-semibold text-[25px] md:text-[30px] self-center text-gray-700 text-center'>College Application Form</h1>}
         <div className='flex flex-col items-center bg-white shadow-md rounded-md p-12 w-full overflow-hidden'>
           {renderPages()}
         </div>

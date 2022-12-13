@@ -60,8 +60,8 @@ const PageOne = ({ isComplete }) => {
 
     return (
         <motion.div className='w-full' animate={{ x: isComplete ? -700 : 0 }} transition={{ duration: 0.35 }}>
-            <p className='self-start text-gray-500 mb-6'>Please fill in the student information so we will be able to contact</p>
-            <form className='grid grid-cols-2 gap-8 w-full' onSubmit={handleSubmit}>
+            <p className='self-start text-gray-500 mb-6 text-center md:text-start'>Please fill in the student information so we will be able to contact</p>
+            <form className='grid md:grid-cols-2 gap-8 w-full' onSubmit={handleSubmit}>
                 <div className='input-group'>
                     <label className='input-label' htmlFor="studentName">Student Name<span>*</span></label>
                     <input className='input' type="text" name='studentName' placeholder='Enter student name' value={values.studentName} onBlur={handleBlur} onChange={handleChange} />

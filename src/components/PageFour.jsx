@@ -42,7 +42,7 @@ const PageFour = ({ isComplete }) => {
 
     return (
         <motion.div className='w-full' animate={{ x: isComplete ? -700 : 0 }} transition={{ duration: 0.35 }}>
-            <form className='grid grid-cols-2 gap-12' onSubmit={handleSubmit}>
+            <form className='grid sm:grid-cols-2 gap-12' onSubmit={handleSubmit}>
                 <div className='input-group'>
                     <label className='input-label' htmlFor="photo">Upload Photo<span>*</span></label>
                     <div className='flex flex-col text-center items-center rounded-xl shadow-[1px_3px_7px_0.05px_rgba(0,0,0,0.15)] border-[2px] border-dashed border-gray-400 p-12 cursor-pointer' onClick={() => { photoRef.current.click() }}>
@@ -55,7 +55,7 @@ const PageFour = ({ isComplete }) => {
                         setFieldValue("photo", e.target.files[0]);
                     }} />
                     <p>{photoName}</p>
-                    {errors.photo && photoName ? <p className='text-red-600'>{errors.photo}</p> : null}
+                    {errors.photo ? <p className='text-red-600'>{errors.photo}</p> : null}
                 </div>
                 <div className='input-group'>
                     <label className='input-label' htmlFor="signature">Upload Signature<span>*</span></label>
@@ -69,7 +69,7 @@ const PageFour = ({ isComplete }) => {
                         setFieldValue("signature", e.target.files[0]);
                     }} />
                     <p>{sigantureName}</p>
-                    {errors.signature && sigantureName ? <p className='text-red-600'>{errors.signature}</p> : null}
+                    {errors.signature ? <p className='text-red-600'>{errors.signature}</p> : null}
                 </div>
                 <button className='hidden' type='submit' ref={buttonRef}></button>
             </form>

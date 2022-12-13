@@ -43,8 +43,8 @@ const PageThree = ({ isComplete }) => {
 
     return (
         <motion.div className='w-full' animate={{ x: isComplete ? -700 : 0 }} transition={{ duration: 0.35 }}>
-            <form className='grid grid-cols-2 gap-8 w-full' onSubmit={handleSubmit}>
-                <div className='input-group'>
+            <form className='grid md:grid-cols-2 gap-8 w-full' onSubmit={handleSubmit}>
+                <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="program">Programme<span>*</span></label>
                     <select className='input cursor-pointer' name='program' value={values.program} onBlur={handleBlur} onChange={handleChange}>
                         {
@@ -57,7 +57,7 @@ const PageThree = ({ isComplete }) => {
                     </select>
                     {errors.program && touched.program ? <p className='text-red-600'>{errors.program}</p> : null}
                 </div>
-                <div className='input-group'>
+                <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="course">Course<span>*</span></label>
                     <select className='input cursor-pointer' name='course' value={values.course} onBlur={handleBlur} onChange={handleChange}>
                         {
@@ -82,8 +82,8 @@ const PageThree = ({ isComplete }) => {
                     <textarea className='input' name="remark" rows="4" placeholder='Please type here..' />
                 </div>
                 <div className='flex flex-col gap-2 col-span-2'>
-                    <div className='flex items-center gap-2'>
-                        <input className='w-4 h-4' type="checkbox" name="information" value={values.information} onBlur={handleBlur} onChange={handleChange}/>
+                    <div className='flex md:items-center gap-2'>
+                        <input className='w-4 h-4 mt-1 md:mt-0' type="checkbox" name="information" value={values.information} onBlur={handleBlur} onChange={handleChange}/>
                         <label className='text-gray-500' htmlFor="information"> I declare that the information provided are true to the best of my knowledge</label>
                     </div>
                     {errors.information && touched.information ? <p className='text-red-600'>{errors.information}</p> : null}

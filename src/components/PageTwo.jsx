@@ -40,12 +40,12 @@ const PageTwo = ({ isComplete }) => {
     return (
         <motion.div className='w-full' animate={{ x: isComplete ? -700 : 0 }} transition={{ duration: 0.35 }}>
             <form className='grid grid-cols-2 gap-8 w-full' onSubmit={handleSubmit}>
-                <div className='input-group'>
+                <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="schoolName">Name of higher secondary school<span>*</span></label>
                     <input className='input' type="text" name='schoolName' placeholder='Enter school name' value={values.schoolName} onBlur={handleBlur} onChange={handleChange} />
                     {touched.schoolName && errors.schoolName ? <p className='text-red-600'>{errors.schoolName}</p> : null}
                 </div>
-                <div className='input-group'>
+                <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="board">Board<span>*</span></label>
                     <select className='input cursor-pointer' name='board' value={values.board} onBlur={handleBlur} onChange={handleChange}>
                         {
@@ -58,12 +58,12 @@ const PageTwo = ({ isComplete }) => {
                     </select>
                     {errors.board && touched.board ? <p className='text-red-600'>{errors.board}</p> : null}
                 </div>
-                <div className='input-group'>
+                <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="yearGraduated">Year Graduated<span>*</span></label>
                     <input className='input' type="date" name='yearGraduated' onBlur={handleBlur} onChange={handleChange} value={values.yearGraduated} />
                     {errors.yearGraduated && touched.yearGraduated ? <p className='text-red-600'>{errors.yearGraduated}</p> : null}
                 </div>
-                <div className='input-group'>
+                <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="mark">{"Total Mark (%)"}<span>*</span></label>
                     <input className='input' type="text" name='mark' placeholder='Enter total mark' value={values.mark} onBlur={handleBlur} onChange={handleChange} />
                     {touched.mark && errors.mark ? <p className='text-red-600'>{errors.mark}</p> : null}
