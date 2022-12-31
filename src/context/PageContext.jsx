@@ -4,7 +4,7 @@ export const pageContext = createContext();
 
 function PageProvider({ children }) {
 
-    const [currentPage, setCurrentPage] = useState(4);
+    const [currentPage, setCurrentPage] = useState(1);
     const [currentSubmitButton, setcurrentSubmitButton] = useState();
     const [changePage, setChangePage] = useState(false);
 
