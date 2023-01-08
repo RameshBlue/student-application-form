@@ -44,7 +44,7 @@ const PageOne = ({ isComplete }) => {
 
     const SelectGender = () => {
         return (
-            <div className='flex gap-2'>
+            <div className='flex gap-2 flex-wrap'>
                 {
                     genderTypes.map((gender, i) => {
                         return (
