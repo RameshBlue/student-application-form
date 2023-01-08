@@ -59,9 +59,9 @@ const PageThree = ({ isComplete }) => {
                 </div>
                 <div className='input-group col-span-2 md:col-span-1'>
                     <label className='input-label' htmlFor="course">Course<span>*</span></label>
-                    <select className='input cursor-pointer' name='course' value={values.course} onBlur={handleBlur} onChange={handleChange}>
+                    <select className='input cursor-pointer w-full' name='course' value={values.course} onBlur={handleBlur} onChange={handleChange}>
                         {
-                            values.program == "Select" || values.program == "" ? <option value={"select"} className='w-full'>Select</option> :
+                            values.program == "Select" || values.program == "" ? <option value={"select"} >Select</option> :
                                 values.program == "PG" ?
                                     PgCourses.map((pgCourse, i) => {
                                         return (
@@ -70,7 +70,7 @@ const PageThree = ({ isComplete }) => {
                                     }) :
                                     UgCourses.map((ugCourse, i) => {
                                         return (
-                                            <option key={i} value={ugCourse} style={{wordWrap:'break-word'}}>{ugCourse}</option>
+                                            <option key={i} value={ugCourse}>{ugCourse}</option>
                                         )
                                     })
                         }
